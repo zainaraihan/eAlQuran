@@ -4,9 +4,8 @@ import { useState, useEffect } from "react";
 const Card = () => {
   const [card, setCard] = useState("");
 
-  const surah = [];
-
   useEffect(() => {
+    const surah = [];
     fetch("https://equran.id/api/surat")
       .then((response) => response.json())
       .then((data) => {
@@ -29,7 +28,7 @@ const Card = () => {
         });
         setCard(surah);
       });
-  });
+  }, []);
 
   return <div className="card">{card}</div>;
 };
