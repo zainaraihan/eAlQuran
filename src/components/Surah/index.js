@@ -1,5 +1,6 @@
 import { useParams } from "react-router";
 import { useEffect } from "react";
+import "./style.css";
 
 const Surah = () => {
   const params = useParams();
@@ -15,7 +16,7 @@ const Surah = () => {
 
   return (
     <div className="surah">
-      <p style={color}>isi surah</p>
+      <div className="ayat">abcd</div>
     </div>
   );
 };
