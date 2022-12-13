@@ -1,5 +1,5 @@
 import Card from "./components/Card/index";
-import Surah from "./components/Surah";
+import Surah from "./components/Surah/index";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
