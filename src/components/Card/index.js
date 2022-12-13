@@ -10,9 +10,10 @@ const Card = () => {
     fetch("https://equran.id/api/surat")
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         data.forEach((sur, id) => {
           surah.push(
-            <Link className="link" to={"/" + sur.nomor}>
+            <Link className="link" to={"/" + sur.nomor} key={id + 1}>
               <div className="cardList" key={id}>
                 <div className="glass">
                   <div className="namaSurah">
