@@ -41,7 +41,7 @@
     font-size: 48px;
     justify-content: flex-end;
     text-align: end;
-    line-height: 80px;
+    line-height: 160px;
 }
 
 .makna{
@@ -62,3 +62,19 @@
     border-radius: 6px;
 }
 
+@media screen and (max-width: 720px){
+    .arab{
+        font-size: 32px;
+        line-height: 80px;
+    }
+    .noAyat{
+        font-size: 14px;
+    }
+    .makna .latin{
+        font-size: 14px;
+    }
+
+    .makna .arti{
+        font-size: 13px;
+    }
+}
