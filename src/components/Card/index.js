@@ -1,9 +1,35 @@
 import "./style.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Card = () => {
+  gsap.registerPlugin(ScrollTrigger);
   const [card, setCard] = useState("");
+  const linkRef = useRef();
+  const [ids, setIds] = useState(0);
+
+  window.addEventListener("scroll", (e) => {
+    const math = Math.floor(window.pageYOffset);
+    if (math >= ids * 50) {
+      setIds(ids + 1);
+    }
+  });
+
+  useEffect(() => {
+    gsap.to(".link" + ids, {
+      opacity: 1,
+      duration: 0.5,
+      ease: "sine.in",
+      scrollTrigger: {
+        trigger: ".link" + ids,
+        start: "top 600px",
+        end: "top top",
+        markers: true,
+      },
+    });
+  });
 
   useEffect(() => {
     const surah = [];
@@ -12,7 +38,12 @@ const Card = () => {
       .then((data) => {
         data.forEach((sur, id) => {
           surah.push(
-            <Link className="link" to={"/" + sur.nomor} key={id + 1}>
+            <Link
+              className={"link link" + id}
+              to={"/" + sur.nomor}
+              key={id + 1}
+              ref={linkRef}
+            >
               <div className="cardList" key={id}>
                 <div className="glass">
                   <div className="namaSurah">
