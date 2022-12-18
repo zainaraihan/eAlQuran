@@ -8,11 +8,11 @@ const Card = () => {
   gsap.registerPlugin(ScrollTrigger);
   const [card, setCard] = useState("");
   const linkRef = useRef();
-  const [ids, setIds] = useState(0);
+  const [ids, setIds] = useState(11);
 
   window.addEventListener("scroll", (e) => {
     const math = Math.floor(window.pageYOffset);
-    if (math >= ids * 50) {
+    if (math >= ids * 30) {
       setIds(ids + 1);
     }
   });
@@ -24,8 +24,8 @@ const Card = () => {
       ease: "sine.in",
       scrollTrigger: {
         trigger: ".link" + ids,
-        start: "top 600px",
-        end: "top top",
+        start: "top bottom",
+        end: "top 600px",
         markers: true,
       },
     });
@@ -43,6 +43,7 @@ const Card = () => {
               to={"/" + sur.nomor}
               key={id + 1}
               ref={linkRef}
+              style={id > 11 ? { opacity: 0 } : { opacity: 1 }}
             >
               <div className="cardList" key={id}>
                 <div className="glass">

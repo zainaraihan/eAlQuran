@@ -1,11 +1,16 @@
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import "./style.css";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Surah = () => {
   const params = useParams();
   const [ayat, setAyat] = useState("");
   const [namaLatin, setNamaLatin] = useState("");
+
+  gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.getAll().forEach((t) => t.kill());
 
   useEffect(() => {
     const aya = [];
