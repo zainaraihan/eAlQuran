@@ -26,7 +26,6 @@ const Card = () => {
         trigger: ".link" + ids,
         start: "top bottom",
         end: "top 600px",
-        markers: true,
       },
     });
   });
