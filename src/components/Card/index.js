@@ -5,10 +5,12 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Card = () => {
+  const mtch = window.matchMedia("(max-width: 720px)");
   gsap.registerPlugin(ScrollTrigger);
   const [card, setCard] = useState("");
+  const [ids, setIds] = useState(mtch.matches ? 2 : 11);
   const linkRef = useRef();
-  const [ids, setIds] = useState(11);
+  console.log(ids);
 
   window.addEventListener("scroll", (e) => {
     const math = Math.floor(window.pageYOffset);
@@ -42,7 +44,7 @@ const Card = () => {
               to={"/" + sur.nomor}
               key={id + 1}
               ref={linkRef}
-              style={id > 11 ? { opacity: 0 } : { opacity: 1 }}
+              style={id > ids ? { opacity: 0 } : { opacity: 1 }}
             >
               <div className="cardList" key={id}>
                 <div className="glass">
@@ -62,7 +64,7 @@ const Card = () => {
         });
         setCard(surah);
       });
-  }, []);
+  }, [ids]);
 
   return <div className="card">{card}</div>;
 };
