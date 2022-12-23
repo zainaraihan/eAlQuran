@@ -22,8 +22,8 @@ const Surah = () => {
           aya.push(
             <div className="ayat" key={id + 1}>
               <div className="noAyat">
-                <div className="nama">{namaLatin}</div>
-                <div className="no">{ayat.surah + " : " + ayat.nomor}</div>
+                <div className="nama">{namaLatin + " : " + ayat.surah}</div>
+                <div className="no nomor">{ayat.nomor}</div>
               </div>
               <div className="arab">{ayat.ar}</div>
               <div className="makna">
