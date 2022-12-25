@@ -1,0 +1,19 @@
+.Nav {
+    position: fixed;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 20px 5%;
+    font-size: 18px;
+    width: 100%;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    filter: drop-shadow(7px 7px 7px #000000);
+}
+
+.Nav .kanan {
+    display: flex;
+    gap: 50px;
+}
