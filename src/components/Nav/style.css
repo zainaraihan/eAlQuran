@@ -12,6 +12,7 @@
     backdrop-filter: blur(5px);
     filter: drop-shadow(7px 7px 10px #000000);
     font-size: 15px;
+    align-items: center;
 }
 
 .Nav .kanan {
@@ -22,4 +23,5 @@
 .Nav .logo img{
     width: 25px;
     filter: brightness(0) invert(1);
+    display: flex;
 }

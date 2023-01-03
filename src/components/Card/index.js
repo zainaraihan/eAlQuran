@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Nav from "../Nav";
 
 const Card = () => {
   const mtch = window.matchMedia("(max-width: 720px)");
@@ -66,7 +67,18 @@ const Card = () => {
       });
   }, [ids]);
 
-  return <div className="card">{card}</div>;
+  const [key, setKey] = useState("");
+
+  const handleChange = (word) => {
+    setKey(word);
+  };
+
+  return (
+    <div className="cardss">
+      <Nav searchKey={key} searchChange={handleChange} />
+      <div className="card">{card}</div>
+    </div>
+  );
 };
 
 export default Card;

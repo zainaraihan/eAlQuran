@@ -8,6 +8,7 @@ const Surah = () => {
   const params = useParams();
   const [ayat, setAyat] = useState("");
   const [namaLatin, setNamaLatin] = useState("");
+  const [jumlahAyat, setJumlahAyat] = useState("");
 
   gsap.registerPlugin(ScrollTrigger);
   ScrollTrigger.getAll().forEach((t) => t.kill());
@@ -18,12 +19,17 @@ const Surah = () => {
       .then((res) => res.json())
       .then((data) => {
         setNamaLatin(data.nama_latin);
+        setJumlahAyat(data.jumlah_ayat);
         data.ayat.forEach((ayat, id) => {
           aya.push(
             <div className="ayat" key={id + 1}>
               <div className="noAyat">
                 <div className="nama">{namaLatin + " : " + ayat.surah}</div>
-                <div className="no nomor">{ayat.nomor}</div>
+                <div className="no nomor">
+                  <span style={{ fontWeight: "800" }}>{ayat.nomor}</span>
+                  {"/"}
+                  <span>{jumlahAyat}</span>
+                </div>
               </div>
               <div className="arab">{ayat.ar}</div>
               <div className="makna">
@@ -35,7 +41,7 @@ const Surah = () => {
         });
         setAyat(aya);
       });
-  }, [params, namaLatin]);
+  }, [params, namaLatin, jumlahAyat]);
 
   return <div className="surah">{ayat}</div>;
 };

@@ -17,3 +17,18 @@ body{
   margin: 0 5%;
   padding-top: 100px;
 }
+
+.surah{
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 2%;
+}
+
+@media screen and (max-width: 720px){
+  .surah{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+  }
+  
+}
