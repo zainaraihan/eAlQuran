@@ -6,10 +6,8 @@ function App() {
   return (
     <BrowserRouter className="app">
       <Routes>
-        <Route path="/">
-          <Route index element={<CardNav />} />
-          <Route path="/:id" element={<Surah />} />
-        </Route>
+        <Route index element={<CardNav />} />
+        <Route path="/:id" element={<Surah />} />
       </Routes>
     </BrowserRouter>
   );

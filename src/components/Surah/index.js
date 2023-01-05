@@ -28,7 +28,9 @@ const Surah = () => {
                 <div className="no nomor">
                   <span style={{ fontWeight: "800" }}>{ayat.nomor}</span>
                   {"/"}
-                  <span>{jumlahAyat}</span>
+                  <span style={{ color: "rgba(255, 255, 255, 0.5)" }}>
+                    {jumlahAyat}
+                  </span>
                 </div>
               </div>
               <div className="arab">{ayat.ar}</div>
