@@ -1,18 +1,20 @@
-.link{
-    color: white;
-    text-decoration: none;
-    opacity: 1;
-}
-
 .opacity{
     opacity: 0;
 }
 
-.card {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    gap: 30px;
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     color: white;
+    gap: 35px 0;
+}
+
+.link{
+    color: white;
+    text-decoration: none;
+    opacity: 1;
+    width: 31.8%;
 }
 
 .cardList{
@@ -55,7 +57,13 @@
 }
 
 @media screen and (max-width: 720px){
-    .card{
+    .cards{
+        display: grid;
         grid-template-columns: auto;
+        justify-content: normal;
+    }
+
+    .link{
+        width: 100%;
     }
 }

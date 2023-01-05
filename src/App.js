@@ -1,4 +1,4 @@
-import Card from "./components/Card/index";
+import CardNav from "./components/CN/index";
 import Surah from "./components/Surah/index";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -7,7 +7,7 @@ function App() {
     <BrowserRouter className="app">
       <Routes>
         <Route path="/">
-          <Route index element={<Card />} />
+          <Route index element={<CardNav />} />
           <Route path="/:id" element={<Surah />} />
         </Route>
       </Routes>

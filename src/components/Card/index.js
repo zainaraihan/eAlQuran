@@ -3,15 +3,13 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Nav from "../Nav";
 
-const Card = () => {
+const Card = ({ api, word }) => {
   const mtch = window.matchMedia("(max-width: 720px)");
   gsap.registerPlugin(ScrollTrigger);
   const [card, setCard] = useState("");
   const [ids, setIds] = useState(mtch.matches ? 2 : 11);
   const linkRef = useRef();
-  console.log(ids);
 
   window.addEventListener("scroll", (e) => {
     const math = Math.floor(window.pageYOffset);
@@ -34,49 +32,43 @@ const Card = () => {
   });
 
   useEffect(() => {
-    const surah = [];
-    fetch("https://equran.id/api/surat")
-      .then((response) => response.json())
-      .then((data) => {
-        data.forEach((sur, id) => {
-          surah.push(
-            <Link
-              className={"link link" + id}
-              to={"/" + sur.nomor}
-              key={id + 1}
-              ref={linkRef}
-              style={id > ids ? { opacity: 0 } : { opacity: 1 }}
-            >
-              <div className="cardList" key={id}>
-                <div className="glass">
-                  <div className="namaSurah">
-                    {sur.nomor}.{sur.nama_latin}
-                  </div>
-                  <div className="preview">
-                    <div className="potonganSurah">{sur.nama}</div>
-                    <div className="artiTurun">
-                      {sur.arti} - {sur.tempat_turun}
-                    </div>
+    const surat = [];
+    api
+      .filter((el) => {
+        return el.nama_latin.toLowerCase().includes(word.toLowerCase());
+      })
+      .map((sur, id) =>
+        surat.push(
+          <Link
+            className={"link link" + id}
+            to={"/" + sur.nomor}
+            key={id + 1}
+            ref={linkRef}
+            style={id > ids ? { opacity: 0 } : { opacity: 1 }}
+          >
+            <div className="cardList" key={id}>
+              <div className="glass">
+                <div className="namaSurah">
+                  {sur.nomor}.{sur.nama_latin}
+                </div>
+                <div className="preview">
+                  <div className="potonganSurah">{sur.nama}</div>
+                  <div className="artiTurun">
+                    {sur.arti} - {sur.tempat_turun}
                   </div>
                 </div>
               </div>
-            </Link>
-          );
-        });
-        setCard(surah);
-      });
-  }, [ids]);
-
-  const [key, setKey] = useState("");
-
-  const handleChange = (word) => {
-    setKey(word);
-  };
+            </div>
+          </Link>
+        )
+      );
+    setCard(surat);
+  }, [api, word, ids]);
+  console.log(api);
 
   return (
-    <div className="cardss">
-      <Nav searchKey={key} searchChange={handleChange} />
-      <div className="card">{card}</div>
+    <div className="card">
+      <div className="cards">{card}</div>
     </div>
   );
 };
