@@ -9,7 +9,7 @@ const CardNav = () => {
   const fetchSurah = async () => {
     try {
       const surah = [];
-      const data = await (await fetch("http://equran.id/api/surat")).json();
+      const data = await (await fetch("https://equran.id/api/surat")).json();
       data.forEach((item) => {
         surah.push(item);
       });
