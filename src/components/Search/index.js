@@ -14,7 +14,6 @@ const Search = ({ keyword, onChange }) => {
     border: "none",
     width: "0px",
     visibility: "hidden",
-    overflow: "hidden",
   };
 
   const tapp = {
