@@ -14,6 +14,7 @@ const Search = ({ keyword, onChange }) => {
     border: "none",
     width: "0px",
     visibility: "hidden",
+    zIndex: "-1",
   };
 
   const tapp = {
@@ -22,6 +23,7 @@ const Search = ({ keyword, onChange }) => {
     border: "0.5px solid rgba(255, 255, 255, 0.05)",
     width: "200px",
     visibility: "visible",
+    zIndex: "0",
   };
 
   const [tap, setTap] = useState(noTapp);
