@@ -10,13 +10,14 @@ const Search = ({ keyword, onChange }) => {
   const noTapp = {
     backgroundColor: "rgb(23, 23, 23)",
     position: "absolute",
-    right: "6%",
+    right: "0%",
     border: "none",
     width: "0px",
     visibility: "hidden",
   };
 
   const tapp = {
+    position: "relative",
     backgroundColor: "rgba(255, 255, 255, 0.1)",
     border: "0.5px solid rgba(255, 255, 255, 0.05)",
     width: "200px",
